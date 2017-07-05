@@ -1,5 +1,10 @@
 # yii2-qiniu-sdk
 基于Yii2实现的七牛云存储API SDK（使用官方SDK）（目前开发中）
+原作者 [@chocoboxxf](https://github.com/chocoboxxf) (我只是添加了自己要用的API，方便自己使用而已)
+
+## 添加
+- download 单文件下载
+- more features coming soon
 
 环境条件
 --------
@@ -15,7 +20,7 @@
 ```json
 {
     "require": {
-       "chocoboxxf/yii2-qiniu-sdk": "dev-master"
+       "yuyangame/yii2-qiniu-sdk": "dev-master"
     }
 }
 ```
@@ -29,7 +34,7 @@
 'components' => [
   .....
   'qiniu' => [ 
-      'class' => 'chocoboxxf\Qiniu\Qiniu',
+      'class' => 'yuyangame\Qiniu\Qiniu',
       'accessKey' => 'Access Key',
       'secretKey' => 'Secret Key',
       'domain' => '七牛域名',
@@ -46,7 +51,7 @@ $result = Yii::$app->qiniu->putFile('img/test.jpg', __DIR__.'/test.jpg');
 ```php
 // 局部调用
 $qiniu = Yii::createObject([
-    'class' => 'chocoboxxf\Qiniu\Qiniu',
+    'class' => 'yuyangame\Qiniu\Qiniu',
     'accessKey' => 'Access Key',
     'secretKey' => 'Secret Key',
     'domain' => '七牛域名',
@@ -101,6 +106,10 @@ $urlMaps = Yii::$app->qiniu->batchDownload($fileList);
 foreach ($urlMaps as $fileUrl => $downloadUrl) {
     // TODO
 }
+
+// or
+$fileName = 'http://domain/private-file1.jpg';
+$url = Yii::$app->qiniu->download($fileName);
 ```
 
 获取上传凭证
