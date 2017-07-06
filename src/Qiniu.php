@@ -169,7 +169,7 @@ class Qiniu extends Component {
 			return false;
 		}
 
-		return $this->batchDownload([$fileName], $privated, $realDownload, $downloadPath)[0];
+		return $this->batchDownload([$fileName], $realDownload, $downloadPath)[0];
 	}
 
 	/**
